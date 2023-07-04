@@ -13,4 +13,18 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-label *ngIf="!mostrarDetalle" class="label">SELECCIONE UNA CIUDAD</ion-label>
+
+  <ion-card *ngIf="mostrarDetalle">
+    <ion-card-header>
+      <ion-card-title>{{ detalle.location.region }}</ion-card-title>
+      <ion-card-subtitle>{{ detalle.location.name }}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-card-subtitle>Clima en grados centígrados: {{ detalle.current.temp_c }}</ion-card-subtitle>
+      <ion-card-subtitle>Clima en grados fahrenheit: {{ detalle.current.temp_f }}</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

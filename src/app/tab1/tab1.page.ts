@@ -30,11 +30,21 @@ export class Tab1Page implements OnInit {
       this.ciudadesBuscadas = this.arrayCiudadesMuestra.filter(ciudad =>
       ciudad.region.toLowerCase().includes(regionBuscada.toLowerCase())
       );
-    } else {
+      } else {
       this.ciudadesBuscadas = [];
-    }
+      }
     this.mostrarBusqueda = true;
     }
-    
+
+  detalleCiudad(ciudad: string){
+    this.servicioClimas.getCiudadSeleccionada(ciudad).subscribe(detailResponse => {
+      this.navCtrl.navigateForward('/tabs/tab2', {
+        queryParams: {
+          detail: JSON.stringify(detailResponse)
+        }
+      });
+    });
+
+  }
 
 }
